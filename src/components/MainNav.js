@@ -6,6 +6,7 @@ import RestoreIcon from '@mui/icons-material/Restore';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { makeStyles } from '@mui/styles';
+import { Search, Tv, Whatshot } from '@mui/icons-material';
 
 
 const useStyles = makeStyles({
@@ -18,13 +19,10 @@ const useStyles = makeStyles({
     },
 });
 
-
 export default function SimpleBottomNavigation() {
     const classes = useStyles();
   const [value, setValue] = React.useState(0);
  
-
-
   return (
     <Box sx={{ width: 500 }}>
       <BottomNavigation
@@ -34,11 +32,29 @@ export default function SimpleBottomNavigation() {
         onChange={(event, newValue) => {
           setValue(newValue);
         }}
-      >
-        <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
-        <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-        <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
+        >
+        <BottomNavigationAction
+        style={{color: "white"}} 
+        label="Trending" 
+        icon={<Whatshot/>} />
+
+        <BottomNavigationAction
+        style={{color: "white"}} 
+         label="Movies"
+          icon={<FavoriteIcon />} />
+
+        <BottomNavigationAction style={{color: "white"}} 
+        label="Tv Series" 
+        icon={<Tv />} />
+
+
+<BottomNavigationAction style={{color: "white"}} 
+        label="Search" 
+        icon={<Search />} />
+      
       </BottomNavigation>
+
+     
     </Box>
   );
 }
